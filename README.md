@@ -37,7 +37,7 @@ git clone --depth=1 https://gitee.com/feixingwa/wawa-plugin.git ./plugins/wawa-p
 如果你使用 pnpm 管理依赖，在 Yunzai-Bot 根目录下运行：
 
 ```bash
-pnpm install --fs-extra=wawa-plugin
+pnpm install fs-extra -w
 pnpm i
 ```
 

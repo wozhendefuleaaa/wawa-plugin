@@ -446,7 +446,7 @@ export class messageAudit extends plugin {
     }
 
     async addAuditUserWhitelist(e) {
-        const match = e.msg.match(/^#?加用户白名单\s*(\d+)?$/);
+        const match = e.msg.match(/^#?加用户白名单 \s*(\d+)?$/);
         if (!match) {
             e.reply('命令格式不正确，请使用：#添加用户白名单[@用户]');
             return true;

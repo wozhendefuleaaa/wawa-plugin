@@ -6,7 +6,7 @@ import fetch from 'node-fetch'
 import { isQQBot } from '../../../resources/CommonReplyUtil.js'
 
 const _path = process.cwd()
-const api = “嘿壳API”
+const api = 嘿壳API
 
 export class messageAudit extends plugin {
     constructor() {
@@ -318,7 +318,7 @@ export class messageAudit extends plugin {
         }
 
         try {
-            const response = await fetch(‘${api}, {
+            const response = await fetch(`${api}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

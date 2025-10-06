@@ -3,7 +3,7 @@ import fs from 'fs/promises'
 import fs_ from 'node:fs'
 import path from 'path'
 import fetch from 'node-fetch'
-import { isQQBot } from '../../../resources/CommonReplyUtil.js'
+import { isQQBot } from 'plugins/wawa-plugin/resources/resources/CommonReplyUtil.js'
 
 const _path = process.cwd()
 

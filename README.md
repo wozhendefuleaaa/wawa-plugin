@@ -26,8 +26,10 @@
 ```
 git clone --depth=1 https://github.com/wozhendefuleaaa/wawa-plugin.git ./plugins/wawa-plugin/
 ```
-
-
+使用gitee
+```
+git clone --depth=1 https://gitee.com/feixingwa/wawa-plugin.git ./plugins/wawa-plugin/
+```
 
 
 ### 使用 pnpm 安装依赖
@@ -39,7 +41,7 @@ pnpm install --fs-extra=wawa-plugin
 pnpm i
 ```
 
-这样只会为 所有 安装/更新依赖，更加方便。
+这样可以为 所有 安装/更新依赖，更加方便。
 
 ## 配置说明
 - 所有群号、群名、白名单、审核问题等均在 `config` 统一管理。

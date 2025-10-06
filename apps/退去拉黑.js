@@ -1,3 +1,4 @@
+import plugin from '../../lib/plugins/plugin.js'
 import fs from 'fs/promises'
 import fs_ from 'node:fs'
 import path from 'path'

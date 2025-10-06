@@ -22,10 +22,10 @@ if (!global.uploadRecord) {
 
 let ret = []
 
-logger.info(chalk.rgb(120, 255, 108)(`---------=.=---------`))
-logger.info(chalk.rgb(120, 255, 108)(`蛙蛙插件 ${Version.version} 载入成功`))
-logger.info(chalk.rgb(120, 255, 108)(`作者：蛙蛙`))
-logger.info(chalk.rgb(120, 255, 108)(`---------------------`));
+logger.info(chalk.rgb(236, 92, 62)(`---------=.=---------`))
+logger.info(chalk.rgb(56, 153, 228)(`蛙蛙插件 ${Version.version} 载入成功`))
+logger.info(chalk.rgb(35, 196, 116)(`作者：蛙蛙`))
+logger.info(chalk.rgb(236, 92, 62)(`---------------------`));
 
 const appsDir = './plugins/wawa-plugin/apps'
 const files = fs

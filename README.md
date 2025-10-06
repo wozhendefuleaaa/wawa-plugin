@@ -3,12 +3,13 @@
 
 [小丞仓库主页](https://github.com/A-Kevin1217)
 [蛙蛙仓库主页](https://github.com/wozhendefuleaaa)
-
+[交流群](https://qm.qq.com/q/AipSySxkR2)
 > 仅兼容 TRSS-Yunzai 框架
 
 ## 插件简介
 
 蛙蛙插件是专为 TRSS-Yunzai 框架开发的多功能群管插件，注重结构化与用户体验。
+存在部分bug会陆修复续
 
 ## 主要功能
 - 文本审核

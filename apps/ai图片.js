@@ -1,4 +1,3 @@
-import plugin from '../../../lib/plugins/plugin.js'
 import fetch from 'node-fetch'
 import { Config } from '../config/index.js'
 import { segment } from 'oicq'

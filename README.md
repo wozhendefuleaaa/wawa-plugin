@@ -17,6 +17,7 @@
 - 随机图片
 - ai图片
 - 绑定与查询互刷
+- 互刷需配合[WW-ccc-plugin](https://github.com/wozhendefuleaaa/yunzai-qqbot-brushing)使用
 
 ## 安装方法
 1. 将本插件文件夹放入 Yunzai-Bot 的 `plugins` 目录下。

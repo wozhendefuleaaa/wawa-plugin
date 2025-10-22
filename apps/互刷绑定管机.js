@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-import { segment } from 'oicq'
+//import { segment } from 'oicq'
 
 export class BrushBind extends plugin {
   constructor () {
@@ -30,6 +30,31 @@ export class BrushBind extends plugin {
     this.dataJsonUrl = 'http://zj.g18c.cn:11111/data.json'
   }
 
+
+/**
+   * 统一转发消息回复（所有文本合并为一条气泡）
+   */
+  async sendForwardMsg(e, msgs) {
+    if (!Array.isArray(msgs)) msgs = [msgs]
+   
+    const text = msgs.join('\n')
+
+    const forwardMsgs = [
+      {
+        message: [{ type: "text", text }],
+        nickname: e.sender.card || e.sender.nickname || "互刷系统",
+        user_id: e.user_id
+      }
+    ]
+
+    try {
+      const forward = await Bot.makeForwardMsg(forwardMsgs)
+      await e.reply(forward)
+    } catch (err) {
+      await e.reply(text)
+    }
+  }
+
   /**
    * 显示帮助信息（新增在线查询说明）
    */
@@ -46,7 +71,7 @@ export class BrushBind extends plugin {
 - 官机QQ号：对应的官机账号（纯数字）
 - 发送指令后将自动向接口发送绑定请求
 - 前往https://gitee.com/feixingwa/yunzai-qqbot-brushing安装插件`
-    await this.reply(helpMsg)
+    await this.sendForwardMsg(this.e, helpMsg)
   }
 
   /**
@@ -102,8 +127,8 @@ export class BrushBind extends plugin {
         })
         replyMsg.push('\n------------------------\n提示：前往https://gitee.com/feixingwa/yunzai-qqbot-brushing获取更多功能')
       }
-
-      await this.reply(replyMsg.join('\n'))
+      // await this.reply(replyMsg)
+     await this.sendForwardMsg(this.e, replyMsg)
 
     } catch (error) {
       console.error('在线互刷查询失败:', error)
@@ -119,7 +144,7 @@ export class BrushBind extends plugin {
     const ts = String(timestamp).length === 10 
       ? Number(timestamp) * 1000 
       : Number(timestamp)
-    
+
     const date = new Date(ts)
     return date.toLocaleString('zh-CN', {
       year: 'numeric',
@@ -138,30 +163,30 @@ export class BrushBind extends plugin {
   async bindBot () {
     const input = this.e.msg.trim()
     const qqNumbers = input.match(/\d+/g)
-    
+
     if (!qqNumbers || qqNumbers.length !== 2) {
       await this.reply('输入格式错误！请使用：#绑定互刷 [野机QQ号] [官机QQ号]\n例如：#绑定互刷 123456789 3889705200\n发送#互刷帮助查看详细说明')
       return
     }
-    
+
     const yejiQQ = qqNumbers[0]
     const guanjiQQ = qqNumbers[1]
-    
+
     if (yejiQQ.length < 5 || yejiQQ.length > 13 || guanjiQQ.length < 5 || guanjiQQ.length > 13) {
       await this.reply('QQ号格式不正确，请检查后重试（QQ号应为5-13位数字）')
       return
     }
-    
+
     try {
       await this.reply(`正在提交绑定请求...\n野机QQ：${yejiQQ}\n官机QQ：${guanjiQQ}`)
-      
+
       const url = `http://zj.g18c.cn:11111/ccc.php?action=6&qq=${encodeURIComponent(yejiQQ)}&bot_uin=${encodeURIComponent(guanjiQQ)}`
-      
+
       const response = await fetch(url, {
         method: 'GET',
         timeout: 10000
       })
-      
+
       const resultText = await response.text()
       let result
       try {
@@ -173,7 +198,7 @@ export class BrushBind extends plugin {
         ])
         return
       }
-      
+
       let replyMsg = []
       switch(result.code) {
         case 0:
@@ -207,9 +232,9 @@ export class BrushBind extends plugin {
             `错误信息：${result.message || '接口未返回具体原因'}\n请联系3345756927`
           ]
       }
-      
-      await this.reply(replyMsg)
-      
+
+      await this.sendForwardMsg(this.e, replyMsg)
+
     } catch (error) {
       console.error('互刷绑定接口调用失败:', error)
       await this.reply(`❌ 绑定请求失败：${error.message || '网络超时或接口异常'}`)

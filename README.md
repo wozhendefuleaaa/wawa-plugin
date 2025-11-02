@@ -1,5 +1,5 @@
 # 蛙蛙插件
-从小丞插件改的
+小丞插件的框架而来
 
 [小丞仓库主页](https://github.com/A-Kevin1217)
 [蛙蛙仓库主页](https://github.com/wozhendefuleaaa)
@@ -16,6 +16,7 @@
 - 退群拉黑
 - 随机图片
 - ai图片
+- 签到
 - 绑定与查询互刷
 - 互刷需配合[WW-ccc-plugin](https://github.com/wozhendefuleaaa/yunzai-qqbot-brushing)使用
 - 也可以使用gitee源[WW-ccc-plugin](https://gitee.com/feixingwa/yunzai-qqbot-brushing)

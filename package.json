@@ -1,7 +1,7 @@
 {
-  "name": "Kevin-plugin",
+  "name": "wawa-plugin",
   "version": "1.0",
-  "description": "TRSS-Yunzai专用小丞插件，支持多群管理、自动审核、吃喝推荐、点歌等功能",
+  "description": "TRSS-Yunzai插件",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,14 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/A-Kevin1217/Kevin-plugin"
+    "url": "https://github.com/wozhendefuleaaa/wawa-plugin"
   },
   "keywords": [
     "Yunzai-Bot",
-    "Kevin-plugin",
     "TRSS-Yunzai"
   ],
-  "author": "小丞",
+  "author": "蛙蛙",
   "license": "MIT",
   "dependencies": {
     "archiver": "^5.3.2",
